@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://f1ykjdmk7mqc"]
+
+[ext_resource type="Script" uid="uid://du6auko4y2357" path="res://ui.gd" id="1_27fn8"]
+[ext_resource type="Texture2D" uid="uid://ybyubwu2hwmt" path="res://Fish game resources/Goldfish.png" id="1_m6e0p"]
+[ext_resource type="Texture2D" uid="uid://px7v5nv7fu50" path="res://Fish game resources/shark.png" id="2_27fn8"]
+
+[node name="UI" type="Control" unique_id=1506374301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27fn8")
+
+[node name="Play" type="Button" parent="." unique_id=271100201]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 223.0
+offset_right = 430.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="." unique_id=2124951163]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 373.0
+offset_right = 355.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="Goldfish" type="Sprite2D" parent="." unique_id=1249840786]
+position = Vector2(732, 467)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m6e0p")
+
+[node name="Shark" type="Sprite2D" parent="." unique_id=1263531200]
+position = Vector2(936, 230)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_27fn8")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
