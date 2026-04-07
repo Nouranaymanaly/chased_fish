@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://oa6dyn8mwfif" path="res://Fish game resources/Sea copy.jpg" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://ybyubwu2hwmt" path="res://Fish game resources/Goldfish.png" id="3_272bh"]
 [ext_resource type="Script" uid="uid://dvtl78ryybb8u" path="res://goldfish.gd" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://px7v5nv7fu50" path="res://Fish game resources/shark.png" id="5_kek77"]
-[ext_resource type="Script" uid="uid://cab5tqgbc2xq2" path="res://shark.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bagune7obug7q" path="res://shark.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://cpyi3xmlaxtbp" path="res://shark_spawner.gd" id="6_272bh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vw27"]
+radius = 270.7397
 
 [node name="Main" type="Node2D" unique_id=655834016]
 
@@ -41,8 +44,14 @@ limit_bottom = 646
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Shark" type="Sprite2D" parent="." unique_id=173278859]
+[node name="Area2D" type="Area2D" parent="Goldfish" unique_id=1344958839]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goldfish/Area2D" unique_id=2025090648]
+position = Vector2(-14.999998, 9.999999)
+shape = SubResource("CircleShape2D_5vw27")
+
+[node name="Shark" parent="." unique_id=2105532679 instance=ExtResource("5_7mycd")]
 position = Vector2(1330, 223)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("5_kek77")
-script = ExtResource("6_7mycd")
+
+[node name="SharkSpawner" type="Node2D" parent="." unique_id=1232762859 groups=["sharks"]]
+script = ExtResource("6_272bh")
