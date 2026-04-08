@@ -6,9 +6,13 @@
 [ext_resource type="Script" uid="uid://dvtl78ryybb8u" path="res://goldfish.gd" id="4_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bagune7obug7q" path="res://shark.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://cpyi3xmlaxtbp" path="res://shark_spawner.gd" id="6_272bh"]
+[ext_resource type="Script" uid="uid://bja48w3t2hveu" path="res://finish_line.gd" id="7_272bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vw27"]
 radius = 270.7397
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(47, 695)
 
 [node name="Main" type="Node2D" unique_id=655834016]
 
@@ -55,3 +59,35 @@ position = Vector2(1330, 223)
 
 [node name="SharkSpawner" type="Node2D" parent="." unique_id=1232762859 groups=["sharks"]]
 script = ExtResource("6_272bh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=859007619]
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer" unique_id=108934910]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -41.5
+offset_right = 20.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer" unique_id=1521990566]
+offset_left = 27.0
+offset_top = 16.0
+offset_right = 235.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 50
+text = "Lives: 3"
+
+[node name="FinishLine" type="Area2D" parent="." unique_id=1472034672]
+position = Vector2(3400, 0)
+script = ExtResource("7_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=1932695070]
+position = Vector2(13.5, 299.5)
+shape = SubResource("RectangleShape2D_7mycd")

@@ -11,9 +11,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://main.tscn") 
-
-
 func _on_quit_pressed() -> void:
 	get_tree().quit() 
+
+func _on_play_pressed() -> void:
+	# Reset lives to 3 before starting the game
+	GameManager.lives = 3 
+	get_tree().change_scene_to_file("res://main.tscn")
